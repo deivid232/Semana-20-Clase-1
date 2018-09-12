@@ -38,7 +38,8 @@
 	        <% if user_signed_in? %>
 	        	<li><a href="#">Hola <%= current_user.name %>!</a></li>
 	        	<li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
-	        <% else %>
+            <li><%= link_to 'Usuarios', pages_dashboard_path %></li>
+          <% else %>
 	        	<li><%= link_to 'Inicia sesión', new_user_session_path %></li>
 	        	<li><%= link_to 'Regístrate', new_user_registration_path %></li>
 	        <% end %>
@@ -46,6 +47,13 @@
 	    </div>
 	  </div>
 	</nav>
+
+  <% if alert.present? %>
+    <div class="alert">
+      <%= alert %>
+    </div>
+  <% end %>
+
     <div class="container">
     	<%= yield %>
     </div>

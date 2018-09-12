@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  enum role: [:admin, :visit]#Aca asigno los roles
 end
